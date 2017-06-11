@@ -20,15 +20,15 @@ under the License.
 // ====CHAINCODE EXECUTION SAMPLES (CLI) ==================
 
 // ==== Invoke marbles ====
-// peer chaincode invoke -C myc1 -n marbles -c '{"Args":["initlicense","marble1","blue","35","tom"]}'
-// peer chaincode invoke -C myc1 -n marbles -c '{"Args":["initlicense","marble2","red","50","tom"]}'
-// peer chaincode invoke -C myc1 -n marbles -c '{"Args":["initlicense","marble3","blue","70","tom"]}'
+// peer chaincode invoke -C myc1 -n marbles -c '{"Args":["initLicense","marble1","blue","35","tom"]}'
+// peer chaincode invoke -C myc1 -n marbles -c '{"Args":["initLicense","marble2","red","50","tom"]}'
+// peer chaincode invoke -C myc1 -n marbles -c '{"Args":["initLicense","marble3","blue","70","tom"]}'
 // peer chaincode invoke -C myc1 -n marbles -c '{"Args":["transferMarble","marble2","jerry"]}'
 // peer chaincode invoke -C myc1 -n marbles -c '{"Args":["transferMarblesBasedOnColor","blue","jerry"]}'
 // peer chaincode invoke -C myc1 -n marbles -c '{"Args":["delete","marble1"]}'
 
 // ==== Query marbles ====
-// peer chaincode query -C myc1 -n marbles -c '{"Args":["readMarble","marble1"]}'
+// peer chaincode query -C myc1 -n marbles -c '{"Args":["readLicense","marble1"]}'
 // peer chaincode query -C myc1 -n marbles -c '{"Args":["getMarblesByRange","marble1","marble3"]}'
 // peer chaincode query -C myc1 -n marbles -c '{"Args":["getHistoryForMarble","marble1"]}'
 
@@ -120,10 +120,10 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("invoke is running " + function)
 
 	// Handle different functions
-	if function == "initlicense" { //create a new marble
-		return t.initlicense(stub, args)
-	} else if function == "readMarble" { //read a marble
-		return t.readMarble(stub, args)
+	if function == "initLicense" { //create a new marble
+		return t.initLicense(stub, args)
+	} else if function == "readLicense" { //read a marble
+		return t.readLicense(stub, args)
 	}
 
 	fmt.Println("invoke did not find func: " + function) //error
@@ -131,9 +131,9 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 }
 
 // ============================================================
-// initlicense - create a new license, store into chaincode state
+// initLicense - create a new license, store into chaincode state
 // ============================================================
-func (t *SimpleChaincode) initlicense(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+func (t *SimpleChaincode) initLicense(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	var err error
 
 	//   0       1       2
@@ -204,9 +204,9 @@ func (t *SimpleChaincode) initlicense(stub shim.ChaincodeStubInterface, args []s
 }
 
 // ===============================================
-// readMarble - read a marble from chaincode state
+// readLicense - read a marble from chaincode state
 // ===============================================
-func (t *SimpleChaincode) readMarble(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+func (t *SimpleChaincode) readLicense(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	var hash, jsonResp string
 	var err error
 
