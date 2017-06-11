@@ -35,7 +35,7 @@ var queryChaincode = function(peer, channelName, chaincodeName, args, username, 
 			chaincodeId: chaincodeName,
 			txId: tx_id,
 //			fcn: config.functionName,
-			fcn: "readMarble",
+			fcn: "readLicense",
 			args: args
 		};
 		return channel.queryByChaincode(request, target);
