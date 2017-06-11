@@ -1,0 +1,21 @@
+{
+   "host":"localhost",
+   "port":"4000",
+   "jwt_expiretime": "36000",
+   "chaincodeId":"lisence",
+   "channelName":"mychannel",
+   "chaincodeVersion": "v0",
+   "GOPATH":"../../fixtures",
+   "chaincodePath":"github.com/lisence",
+   "keyValueStore":"/tmp/fabric-client-kvs",
+   "orgsList": ["org1","org2"],
+   "eventWaitTime":"30000",
+   "invokeQueryFcnName":"invoke",
+   "orderer":"grpcs://localhost:7050",
+   "users":[
+      {
+         "username":"admin",
+         "secret":"adminpw"
+      }
+   ]
+}
